@@ -9,8 +9,25 @@ const geist = Geist({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://portfolio-topaz-omega-44.vercel.app"), // your live URL
   title: "Zohaib Ahmed", // text shown in the browser tab and search results
-  description: "Personal website of Zohaib Ahmed, computer science student and software engineer.", // search/social preview text
+  description:
+    "Personal website of Zohaib Ahmed, computer science student and software engineer.",
+  openGraph: {
+    title: "Zohaib Ahmed",
+    description:
+      "Computer science student and software engineer at Fordham. I build software that is useful and fun.",
+    url: "/",
+    siteName: "Zohaib Ahmed",
+    images: [{ url: "/og.png", width: 1200, height: 630 }], // file lives in /public
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Zohaib Ahmed",
+    description: "Computer science student and software engineer at Fordham.",
+    images: ["/og.png"],
+  },
 };
 
 export default function RootLayout({
@@ -20,12 +37,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={geist.variable}>
-      {/* root element; the className makes the font variable available everywhere */}
-      <body className="font-sans antialiased">
-        {/* antialiased makes text look smoother */}
-        <Starfield />
-        {children}
-      </body>
+      <body className="font-sans antialiased">{children}</body>
     </html>
   );
 }
