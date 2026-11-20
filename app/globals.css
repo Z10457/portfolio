@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+:root {
+  --background: #000000;
+  --foreground: #5d6e9c;
+  --accent: #e4ef1b; /* amber accent, use as text-[var(--accent)] etc. */
+}
+
+body {
+  background:
+    radial-gradient(ellipse at 50% -10%, rgba(245, 197, 24, 0.1), transparent 55%),
+    var(--background);
+  color: var(--foreground);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: var(--accent);
+  color: #0b0c10;
+}
